@@ -55,9 +55,9 @@ spec:
         imagePullPolicy: IfNotPresent #Always
 	volumeMounts:
         - name: tmp
-          mountPath: /tmp
+	  mountPath: /tmp
 	securityContext:
-          runAsUser: 1000        
+          runAsUser: 1000
     volumes:
       - name: tmp
         emptyDir: {}
@@ -99,9 +99,9 @@ spec:
 	volumeMounts:
         - name: tmp
           mountPath: /tmp
-	securityContext:
-          runAsUser: 1000        
-    volumes:
+	  securityContext:
+	    runAsUser: 1000
+      volumes:
       - name: tmp
         emptyDir: {}
 ---
@@ -142,8 +142,8 @@ spec:
 	volumeMounts:
         - name: tmp
           mountPath: /tmp
-	securityContext:
-          runAsUser: 1000        
+	  securityContext:
+            runAsUser: 1000
     volumes:
       - name: tmp
         emptyDir: {}
