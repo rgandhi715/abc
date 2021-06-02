@@ -25,40 +25,40 @@ metadata:
   name: helloworld-v1
   labels:
     app: helloworld
-	version: v1
+    version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: helloworld
-	  version: v1
+      version: v1
   template:
     metadata:
       labels:
         app: helloworld
-		version: v1
+	version: v1
     spec:
-	  serviceAccountName: helloworld
+      serviceAccountName: helloworld
       nodeSelector:
-            "beta.kubernetes.io/os": linux
+        "beta.kubernetes.io/os": linux
       containers:
       - name: helloworld
         image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+	ports:
+        - containerPort: 80
+	env:
+        - name: TITLE
+          value: "AKS Ingress Demo"
         resources:
           requests:
             cpu: "100m"
         imagePullPolicy: IfNotPresent #Always
-        ports:
-        - containerPort: 80
-		volumeMounts:
+	volumeMounts:
         - name: tmp
           mountPath: /tmp
-		securityContext:
-          runAsUser: 1000
-        env:
-        - name: TITLE
-          value: "AKS Ingress Demo"
-	  volumes:
+	securityContext:
+          runAsUser: 1000        
+    volumes:
       - name: tmp
         emptyDir: {}
 ---
@@ -68,40 +68,40 @@ metadata:
   name: helloworld-v2
   labels:
     app: helloworld
-	version: v2
+    version: v2
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: helloworld
-	  version: v2
+      version: v2
   template:
     metadata:
       labels:
         app: helloworld
-		version: v2
+	version: v2
     spec:
-	  serviceAccountName: helloworld
+      serviceAccountName: helloworld
       nodeSelector:
-            "beta.kubernetes.io/os": linux
+        "beta.kubernetes.io/os": linux
       containers:
       - name: helloworld
         image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+	ports:
+        - containerPort: 80
+	env:
+        - name: TITLE
+          value: "AKS Ingress Demo"
         resources:
           requests:
             cpu: "100m"
         imagePullPolicy: IfNotPresent #Always
-        ports:
-        - containerPort: 80
-		volumeMounts:
+	volumeMounts:
         - name: tmp
           mountPath: /tmp
-		securityContext:
-          runAsUser: 1000
-        env:
-        - name: TITLE
-          value: "AKS Kubernetes Demo"
-	  volumes:
+	securityContext:
+          runAsUser: 1000        
+    volumes:
       - name: tmp
         emptyDir: {}
 ---
@@ -111,39 +111,39 @@ metadata:
   name: helloworld-v3
   labels:
     app: helloworld
-	version: v3
+    version: v3
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: helloworld
-	  version: v3
+      version: v3
   template:
     metadata:
       labels:
         app: helloworld
-		version: v3
+	version: v3
     spec:
-	  serviceAccountName: helloworld
+      serviceAccountName: helloworld
       nodeSelector:
-            "beta.kubernetes.io/os": linux
+        "beta.kubernetes.io/os": linux
       containers:
       - name: helloworld
         image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+	ports:
+        - containerPort: 80
+	env:
+        - name: TITLE
+          value: "AKS Ingress Demo"
         resources:
           requests:
             cpu: "100m"
         imagePullPolicy: IfNotPresent #Always
-        ports:
-        - containerPort: 80
-		volumeMounts:
+	volumeMounts:
         - name: tmp
           mountPath: /tmp
-		securityContext:
-          runAsUser: 1000
-        env:
-        - name: TITLE
-          value: "AKS Istio Demo"
-	  volumes:
+	securityContext:
+          runAsUser: 1000        
+    volumes:
       - name: tmp
         emptyDir: {}
